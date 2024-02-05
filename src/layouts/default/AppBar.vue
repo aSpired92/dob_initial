@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar class="bg-primary" :elevation="2">
+  <v-app-bar density="compact" class="bg-primary" :elevation="2">
     <template v-slot:prepend>
       <v-app-bar-title>
         <v-icon icon="mdi-food" class="mr-3 ml-2" />

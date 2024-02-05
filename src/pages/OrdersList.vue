@@ -1,7 +1,5 @@
 <template>
-  <v-main>
-    <router-view />
-  </v-main>
+  <div>OrdersList</div>
 </template>
 
 <script lang="ts" setup>
