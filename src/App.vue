@@ -1,3 +1,7 @@
+<script lang="ts" setup>
+import DefaultLayout from "@/layouts/DefaultLayout.vue";
+</script>
+
 <template>
   <v-app>
     <v-main>
@@ -8,6 +12,4 @@
   </v-app>
 </template>
 
-<script lang="ts" setup>
-import DefaultLayout from "@/layouts/DefaultLayout.vue";
-</script>
+
