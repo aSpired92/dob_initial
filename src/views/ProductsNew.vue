@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import {onMounted, ref} from "vue";
 import {addProduct, getProductCategories} from "@/api/products";
+import router from "@/router";
 
 const categories = ref()
 
@@ -10,7 +11,10 @@ const price = ref()
 
 
 const submit = () => {
-  addProduct(name.value, category.value, price.value)
+  addProduct(name.value, category.value, price.value).then(() => {
+    router.push({name: 'products-list'})
+  })
+
 }
 
 onMounted(() => {
@@ -27,7 +31,7 @@ onMounted(() => {
     class="pa-6 mx-auto"
     max-width="400"
   >
-    <h4 class="text-h5 font-weight-bold mb-4">Nowy produkt</h4>
+    <h4 class="text-h5 font-weight-bold text-center mb-4">Nowy produkt</h4>
 
     <v-form @submit.prevent @submit="submit">
       <v-autocomplete
@@ -57,6 +61,7 @@ onMounted(() => {
           color="primary"
           size="x-large"
           variant="outlined"
+          @click="router.push({name: 'products-list'})"
       >
         ANULUJ
       </v-btn>

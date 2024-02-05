@@ -11,3 +11,7 @@ export const addProduct = (name: string, category: string, price: number) => {
     price
   })
 }
+
+export const getAllProducts = () => {
+  return productsApi.get('')
+}
