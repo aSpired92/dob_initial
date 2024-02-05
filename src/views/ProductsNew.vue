@@ -1,8 +1,17 @@
 <script lang="ts" setup>
 import {onMounted, ref} from "vue";
-import {getProductCategories} from "@/api/products";
+import {addProduct, getProductCategories} from "@/api/products";
 
 const categories = ref()
+
+const name = ref()
+const category = ref()
+const price = ref()
+
+
+const submit = () => {
+  addProduct(name.value, category.value, price.value)
+}
 
 onMounted(() => {
   getProductCategories().then(response => {
@@ -20,36 +29,40 @@ onMounted(() => {
   >
     <h4 class="text-h5 font-weight-bold mb-4">Nowy produkt</h4>
 
-    <v-form>
-      <v-text-field label="Nazwa" variant="outlined" color="primary" />
+    <v-form @submit.prevent @submit="submit">
       <v-autocomplete
-        label="Kategoria"
-        :items="categories"
-        color="primary"
-        variant="outlined"
+          label="Kategoria"
+          :items="categories"
+          color="primary"
+          variant="outlined"
+          v-model="category"
       />
-      <v-text-field label="Cena" variant="outlined" color="primary" type="number" step="0.01" />
+      <v-text-field label="Nazwa" variant="outlined" color="primary" v-model="name" />
+      <v-text-field label="Cena" variant="outlined" color="primary" type="number" step="0.01" v-model="price" />
+
+      <v-btn
+          block
+          class="text-none mb-2"
+          color="primary"
+          size="x-large"
+          variant="flat"
+          type="submit"
+      >
+        DODAJ
+      </v-btn>
+
+      <v-btn
+          block
+          class="text-none text-black"
+          color="primary"
+          size="x-large"
+          variant="outlined"
+      >
+        ANULUJ
+      </v-btn>
     </v-form>
 
-    <v-btn
-      block
-      class="text-none mb-2"
-      color="primary"
-      size="x-large"
-      variant="flat"
-    >
-      DODAJ
-    </v-btn>
 
-    <v-btn
-      block
-      class="text-none text-black"
-      color="primary"
-      size="x-large"
-      variant="outlined"
-    >
-      ANULUJ
-    </v-btn>
   </v-sheet>
 </template>
 
