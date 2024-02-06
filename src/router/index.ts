@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import ReportsDashboard from "@/views/ReportsDashboard.vue";
-import ProductsList from "@/views/ProductsList.vue";
-import ProductsNew from "@/components/forms/ProductsForm.vue";
+import ProductsPage from "@/views/ProductsPage.vue";
+import ClientsPage from "@/views/ClientsPage.vue";
+import OrdersPage from "@/views/OrdersPage.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -20,57 +21,21 @@ const router = createRouter({
         {
           path: 'products',
           name: 'products',
-          redirect: {name: 'products-list'},
-          children: [
-            {
-              path: '',
-              name: 'products-list',
-              component: ProductsList
-            },
-            {
-              path: 'new',
-              name: 'products-new',
-              component: ProductsNew
-            },
-          ]
+          component: ProductsPage
         },
 
         // KLIENCI
         {
           path: 'clients',
           name: 'clients',
-          redirect: {name: 'clients-list'},
-          children: [
-            {
-              path: '',
-              name: 'clients-list',
-              component: ProductsList
-            },
-            {
-              path: 'new',
-              name: 'clients-new',
-              component: ProductsNew
-            },
-          ]
+          component: ClientsPage
         },
 
         // ZAMÓWIENIA
         {
           path: 'orders',
           name: 'orders',
-          redirect: {name: 'orders-list'},
-          children: [
-            {
-              path: '',
-              name: 'orders-list',
-              component: ProductsList
-            },
-            {
-              path: 'new',
-              name: 'orders-new',
-              component: ProductsNew
-            },
-          ]
+          component: OrdersPage
         },
       ]
     }
