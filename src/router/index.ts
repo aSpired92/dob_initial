@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import ReportsDashboard from "@/views/ReportsDashboard.vue";
 import ProductsList from "@/views/ProductsList.vue";
-import ProductsNew from "@/views/ProductsNew.vue";
+import ProductsNew from "@/components/forms/ProductsForm.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

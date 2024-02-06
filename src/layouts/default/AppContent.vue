@@ -1,12 +1,13 @@
 <template>
-  <v-main>
-    <v-container class="fill-height">
-      <v-responsive class="align-center fill-height">
+  <v-main class="fill-height overflow-hidden">
+    <SnackbarRenderer />
+
+    <v-container class="fill-height overflow-hidden">
         <slot />
-      </v-responsive>
     </v-container>
   </v-main>
 </template>
 
 <script lang="ts" setup>
+import SnackbarRenderer from "@/components/SnackbarRenderer.vue";
 </script>
