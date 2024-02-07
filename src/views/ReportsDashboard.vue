@@ -32,6 +32,8 @@ watch(dateFrom, () => {
   console.log(dateFrom.value)
 })
 
+const reloader = ref(1)
+
 const update = () => {
   getAllClients().then(response => {
     clients.value = response.data
@@ -51,6 +53,8 @@ const update = () => {
 
     nameData.value = nameReport.value.map(obj => obj.totalQuantity)
     nameLabel.value = nameReport.value.map(obj => obj._id)
+
+    reloader.value++
 
 
   })
@@ -115,7 +119,7 @@ onMounted(() => {
               Sprzedaż z podziałem na produkty
             </v-card-title>
             <v-card-text class="text-center">
-              <PieChart :data="nameData" :labels="nameLabel" />
+              <PieChart :data="nameData" :labels="nameLabel" :key="reloader"/>
             </v-card-text>
           </v-card>
 
@@ -126,7 +130,7 @@ onMounted(() => {
               Sprzedaż z podziałem na kategorie produktów
             </v-card-title>
             <v-card-text class="text-center">
-              <PieChart :data="categoryData" :labels="categoryLabel" />
+              <PieChart :data="categoryData" :labels="categoryLabel" :key="reloader"/>
             </v-card-text>
           </v-card>
         </v-col>
