@@ -8,3 +8,7 @@ export const api = axios.create({
 export const productsApi = axios.create({
   baseURL: `${apiUrl}/products`
 })
+
+export const clientsApi = axios.create({
+  baseURL: `${apiUrl}/clients`
+})

@@ -99,14 +99,14 @@ onMounted(() => {
                     isActive.value = false
                     refresh().then(() => {
                       addLoading = false
-                      addSnackbar(SavedSnackbar, 3)
+                      addSnackbar(SavedSnackbar)
                     })
                   }"
                  @cancel="() => {
                    addLoading = false
                     isActive.value = false
                   }"
-          />/>
+          />
           </template>
         </v-dialog>
 
@@ -143,7 +143,7 @@ onMounted(() => {
                     isActive.value = false
                     refresh().then(() => {
                       row.item.editLoading = false
-                      addSnackbar(SavedSnackbar, 3)
+                      addSnackbar(SavedSnackbar)
                     })
                   }"
                   @cancel="() => {

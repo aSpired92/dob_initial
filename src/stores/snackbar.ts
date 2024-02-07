@@ -13,16 +13,16 @@ export const useSnackbarStore = defineStore('snackbar', () => {
 
   const snackbars = ref<Snackbar[]>([])
 
-  const addSnackbar = (component: Component, timeout?: number) => {
+  const addSnackbar = (component: Component, timeout: number = 2) => {
 
     let snackbar: Snackbar = {
       id: uuid.v4(),
       component: component,
-      timeout: null
+      timeout: timeout * 1000
     }
 
-    if (timeout) {
-      snackbar.timeout = timeout * 1000
+    if (timeout <= 0) {
+      snackbar.timeout = null
     }
 
     snackbars.value.push(snackbar)
