@@ -12,3 +12,7 @@ export const productsApi = axios.create({
 export const clientsApi = axios.create({
   baseURL: `${apiUrl}/clients`
 })
+
+export const ordersApi = axios.create({
+  baseURL: `${apiUrl}/orders`
+})

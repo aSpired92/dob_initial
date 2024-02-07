@@ -2,7 +2,7 @@
   <v-main class="fill-height overflow-hidden">
     <SnackbarRenderer />
 
-    <v-container class="fill-height overflow-hidden">
+    <v-container class="fill-height overflow-auto">
         <slot />
     </v-container>
   </v-main>

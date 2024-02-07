@@ -12,6 +12,9 @@ import * as directives from 'vuetify/directives'
 import '@mdi/font/css/materialdesignicons.css'
 import { pl } from 'vuetify/locale'
 
+// ApexCharts
+import VueApexCharts from "vue3-apexcharts";
+
 const app = createApp(App)
 
 const vuetify = createVuetify({
@@ -26,5 +29,6 @@ const vuetify = createVuetify({
 app.use(createPinia())
 app.use(router)
 app.use(vuetify)
+app.use(VueApexCharts);
 
 app.mount('#app')
