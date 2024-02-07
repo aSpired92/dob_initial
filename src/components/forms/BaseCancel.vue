@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const emits = defineEmits(['action'])
+const emits = defineEmits(['yes', 'no'])
 </script>
 
 <template>
@@ -21,7 +21,7 @@ const emits = defineEmits(['action'])
         color="red"
         size="x-large"
         variant="flat"
-        @click="emits('action')"
+        @click="emits('yes')"
     >
       TAK
     </v-btn>
@@ -32,7 +32,7 @@ const emits = defineEmits(['action'])
         color="red"
         size="x-large"
         variant="outlined"
-        @click="emits('action')"
+        @click="emits('no')"
     >
       NIE
     </v-btn>

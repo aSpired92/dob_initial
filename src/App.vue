@@ -11,6 +11,5 @@ import DefaultLayout from "@/layouts/DefaultLayout.vue";
 <style lang="sass">
 html
   overflow-y: hidden
-
 </style>
 

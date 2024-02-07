@@ -3,18 +3,22 @@ import {Product} from "@/api/products";
 import {deleteProduct} from "@/api/products"
 
 const props = defineProps({
-  item: Product
+  item: Object,
+  deletePromise: {
+    type: Function,
+    required: true
+  }
 })
 
 const deleteItem = () => {
   if (props.item?._id) {
-    deleteProduct(props.item?._id).then(() => {
-      emits('action')
+    props.deletePromise(props.item?._id).then(() => {
+      emits('delete')
     })
   }
 }
 
-const emits = defineEmits(['action'])
+const emits = defineEmits(['delete', 'cancel'])
 </script>
 
 <template>
@@ -48,7 +52,7 @@ const emits = defineEmits(['action'])
         color="red"
         size="x-large"
         variant="outlined"
-        @click="emits('action')"
+        @click="emits('cancel')"
     >
       Anuluj
     </v-btn>
