@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import "echarts";
-import "vue-echarts"
 import DatepickerField from "@/components/DatepickerField.vue";
 import {formatNumber} from "@/helpers";
 import {computed, onMounted, provide, ref, watch} from "vue";
