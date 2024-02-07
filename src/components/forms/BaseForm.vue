@@ -25,17 +25,18 @@ const emits = defineEmits(['save', 'cancel'])
   <v-sheet
       border="md"
       class="pa-6"
+      width="400"
   >
 
 
     <h4 class="text-h5 font-weight-bold text-center mb-4">{{ newObject ? `Nowy ${name}` : `Edytuj ${name}` }}</h4>
 
     <v-form @submit.prevent @submit="emits('save')">
-      <slot/>
+      <slot />
 
       <v-btn
           block
-          class="text-none mb-2"
+          class="text-none mb-2 mt-4"
           color="primary"
           size="x-large"
           variant="flat"

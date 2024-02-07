@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import {computed, ref} from "vue";
+import {formattedDate} from "@/helpers";
 
-const formattedDate = computed(() => {
-  return date.value ? date.value.toLocaleDateString("pl") : "";
+const fDate = computed(() => {
+  return date.value ? formattedDate(date.value) : ""
 });
 
 defineProps({
@@ -19,7 +20,7 @@ const date = ref()
       <v-text-field
           class="w-100"
           :label="label"
-          :model-value="formattedDate"
+          :model-value="fDate"
           readonly
           v-bind="props"
           variant="outlined"

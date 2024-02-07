@@ -1,3 +1,5 @@
+import {computed} from "vue";
+
 export const formatNumber = (number: number) => {
     const options: Intl.NumberFormatOptions = {
         minimumFractionDigits: 2,
@@ -21,3 +23,7 @@ export const getCategoryColor = (id: number) => {
     return colors[id - 1]
 
 }
+
+export const formattedDate = (date: Date) => {
+    return date.toLocaleDateString("pl");
+};

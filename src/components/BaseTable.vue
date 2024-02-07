@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+  <script lang="ts" setup>
 import {onMounted, ref, useSlots} from "vue";
 import {getAllProducts} from "@/api/products";
 import ProductsForm from "@/components/forms/products/ProductsForm.vue";
@@ -147,8 +147,10 @@ onMounted(() => {
                     })
                   }"
                   @cancel="() => {
-                    isActive.value = false
+                    refresh().then(() => {
+                      isActive.value = false
                     row.item.editLoading = false
+                    })
                   }"
                 />
               </template>

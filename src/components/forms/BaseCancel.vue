@@ -5,7 +5,9 @@ const emits = defineEmits(['yes', 'no'])
 <template>
   <v-sheet
       border="md"
-      class="pa-6"
+      class="pa-6 mx-auto"
+      width="400"
+
   >
     <h4 class="text-h5 font-weight-bold mb-4">Anulowanie</h4>
 

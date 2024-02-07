@@ -7,6 +7,10 @@ const props = defineProps({
   deletePromise: {
     type: Function,
     required: true
+  },
+  objMessage: {
+    required: false,
+    type: String
   }
 })
 
@@ -30,7 +34,8 @@ const emits = defineEmits(['delete', 'cancel'])
     <h4 class="text-h5 font-weight-bold mb-4">Usuwanie</h4>
 
     <p class="mb-8">
-      Czy na pewno chcesz usunąć obiekt: <span class="font-weight-bold">{{item.name}}</span>?
+      <span v-if="!objMessage">Czy na pewno chcesz usunąć obiekt: <span class="font-weight-bold">{{item.name}}</span>?</span>
+      <span v-else>{{ objMessage }}</span>
       <br>
       Usuniętych danych nie da się już odzyskać
     </p>
