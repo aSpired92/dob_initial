@@ -1,17 +1,25 @@
 <script setup lang="ts">
 import {computed, ref} from "vue";
 import {formattedDate} from "@/helpers";
+import {useDate} from "vuetify";
 
 const fDate = computed(() => {
-  return date.value ? formattedDate(date.value) : ""
+  return model.value ? formattedDate(model.value) : ""
 });
+
+const model = defineModel()
 
 defineProps({
   label: String
 })
 
 const menuShow = ref(false)
-const date = ref()
+
+
+
+const convertDate = (item) => {
+  model.value = new Date(item) // Wed Nov 29 2023 18:00:00 GMT-0600
+}
 </script>
 
 <template>
@@ -26,9 +34,11 @@ const date = ref()
           variant="outlined"
           color="primary"
           hide-details
+          clearable
+          @click:clear="model = null"
       ></v-text-field>
     </template>
-    <v-date-picker v-model="date" hide-actions color="primary"/>
+    <v-date-picker v-model="model" hide-actions color="primary" @update:modelValue.prevent() @update="convertDate" />
   </v-menu>
 </template>
 

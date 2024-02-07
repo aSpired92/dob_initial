@@ -13,14 +13,13 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "apexcharts": "^3.45.2",
     "axios": "^1.6.7",
+    "chart.js": "^4.4.1",
     "js-md5": "^0.8.3",
     "pinia": "^2.1.7",
     "vue": "^3.4.15",
     "vue-router": "^4.2.5",
     "vue-uuid": "^3.0.0",
-    "vue3-apexcharts": "^1.4.4",
     "vuetify": "^3.5.2"
   },
   "devDependencies": {
